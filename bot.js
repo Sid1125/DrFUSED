@@ -33,7 +33,7 @@ const commandFolders = fs.readdirSync(foldersPath);
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.user.setPresence({
-    activities: [{ name: `!help in ${client.guilds.cache.size} servers`, type: ActivityType.Listening }],
+    activities: [{ name: `/help in ${client.guilds.cache.size} servers`, type: ActivityType.Listening }],
     status: 'online',
   });
 });
