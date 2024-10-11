@@ -87,5 +87,3 @@ This bot uses GitHub Actions to automatically deploy and run the bot. Follow the
 This repository is licensed under the [GPL-3.0 License](./LICENSE).
 
 ---
-
-Feel free to customize this `README.md` further to suit your project's needs!
