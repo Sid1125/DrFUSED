@@ -59,7 +59,7 @@ client.on(Events.InteractionCreate, async interaction => {
 		}
 	}
 });
-const rest = new REST({ version: '10' }).setToken('MTI5MzI0NDYwODAyODk5OTY5MA.GXu_JA.U4VLrdMtOEuJVndH658Gdg32yvha3rKYlzuSM8');
+const rest = new REST({ version: '10' }).setToken(process.env.BTOKEN);
 (async () => {
   for (const folder of commandFolders) {
     const commandsPath = path.join(foldersPath, folder);
@@ -134,4 +134,4 @@ function resetWarnings() {
 // Set interval to check for expired warnings every day
 setInterval(resetWarnings, 24 * 60 * 60 * 1000); // 1 day
 
-client.login('MTI5MzI0NDYwODAyODk5OTY5MA.GXu_JA.U4VLrdMtOEuJVndH658Gdg32yvha3rKYlzuSM8');
+client.login(process.env.BTOKEN);
