@@ -2,9 +2,9 @@ Here's a professional and informative `README.md` file for your GitHub bot repos
 
 ---
 
-# DrFUSED - A Discord Moderation Bot
+# Dr FUSED - A Discord Moderation Bot
 
-Welcome to **DrFUSED**, a powerful and customizable Discord bot designed to streamline moderation tasks and provide essential server management features. This bot includes features like automated warning systems, customizable commands, and embedded information delivery for improved server management.
+Welcome to **Dr FUSED**, a powerful and customizable Discord bot designed to streamline moderation tasks and provide essential server management features. This bot includes features like automated warning systems, customizable commands, and embedded information delivery for improved server management.
 
 ## Features
 
