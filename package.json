@@ -1,0 +1,24 @@
+{
+  "name": "newbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^1.9.0",
+    "discord.js": "^14.8.0",
+    "libsodium-wrappers": "^0.7.11",
+    "mathjs": "^13.2.0",
+    "mongoose": "^8.7.0",
+    "punycode": "^2.3.1",
+    "whatwg-url": "^14.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.12.0"
+  }
+}
