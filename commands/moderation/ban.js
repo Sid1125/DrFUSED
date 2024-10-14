@@ -15,6 +15,7 @@ module.exports = {
                 .setRequired(false)),
     userPermissions: ['BanMembers'],
     botPermissions: ['BanMembers'],
+    category: 'moderation',
     async execute(interaction) {
         const user = interaction.options.getUser('user');
         const reason = interaction.options.getString('reason') || 'No reason provided';

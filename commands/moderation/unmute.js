@@ -8,6 +8,7 @@ module.exports = {
             option.setName('user')
                 .setDescription('The user to unmute')
                 .setRequired(true)),
+    category: 'moderation',
     async execute(interaction) {
         const user = interaction.options.getUser('user');
         const member = interaction.guild.members.cache.get(user.id);

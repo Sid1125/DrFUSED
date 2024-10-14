@@ -9,7 +9,7 @@ module.exports = {
                 .setDescription('The channel to nuke (leave blank for current channel)')
                 .setRequired(false))
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels), // Permission required to use this command
-    
+    category: 'moderation',
     async execute(interaction) {
         // Check if the user has permission to manage channels
         if (!interaction.member.permissions.has(PermissionFlagsBits.ManageChannels)) {

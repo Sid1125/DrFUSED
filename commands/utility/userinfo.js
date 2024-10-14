@@ -8,6 +8,7 @@ module.exports = {
             option.setName('target')
                 .setDescription('Select a user')
                 .setRequired(true)),
+    category: 'utility',
     async execute(interaction) {
         const user = interaction.options.getUser('target');
         const member = interaction.guild.members.cache.get(user.id);

@@ -4,6 +4,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('invite')
         .setDescription('Generate an invite link for the bot'),
+    category: 'utility',
     async execute(interaction) {
         const inviteLink = `https://discord.com/oauth2/authorize?client_id=1293244608028999690`;
 

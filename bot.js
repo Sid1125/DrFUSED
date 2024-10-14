@@ -2,7 +2,7 @@ const { Client, GatewayIntentBits, Partials, InteractionType, ActivityType, Coll
 const { EmbedBuilder } = require('discord.js');
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const fs = require('fs');
-const { clientId, guildId, token } = require('./config.json');
+const { clientId } = require('./config.json');
 const { REST, Routes } = require('discord.js');
 const client = new Client({
   intents: [
@@ -22,6 +22,7 @@ const client = new Client({
     Partials.Reaction
   ]
 });
+
 const path = require('node:path');
 module.exports = client;
 
@@ -33,7 +34,7 @@ const commandFolders = fs.readdirSync(foldersPath);
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.user.setPresence({
-    activities: [{ name: `/help in ${client.guilds.cache.size} servers`, type: ActivityType.Listening }],
+    activities: [{ name: `!help in ${client.guilds.cache.size} servers`, type: ActivityType.Listening }],
     status: 'online',
   });
 });

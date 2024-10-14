@@ -5,7 +5,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('stats')
 		.setDescription('Shows information about the bot'),
-  
+	category: 'utility',
 	async execute(interaction) {
 		let totalUsers = 0;
 

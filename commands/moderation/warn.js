@@ -22,6 +22,7 @@ module.exports = {
             option.setName('reason')
                 .setDescription('The reason for the warning')
                 .setRequired(false)),
+    category: 'moderation',
     async execute(interaction) {
         const user = interaction.options.getUser('user');
         const reason = interaction.options.getString('reason') || 'No reason provided';

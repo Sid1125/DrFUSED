@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, ChannelType } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder,PermissionFlagsBits, ChannelType } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -7,10 +7,14 @@ module.exports = {
         .addIntegerOption(option =>
             option.setName('amount')
                 .setDescription('Number of messages to delete')
-                .setRequired(true)),
+                .setRequired(true))
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels),
+    category: 'moderation',
     async execute(interaction) {
         const amount = interaction.options.getInteger('amount');
-
+        if (!interaction.member.permissions.has(PermissionFlagsBits.ManageChannels)) {
+            return interaction.reply({ content: 'You do not have permission to clear messages!', ephemeral: true });
+        }
         if (amount < 1 || amount > 100) {
             return interaction.reply('You can only delete between 1 and 100 messages.');
         }

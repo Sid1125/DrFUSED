@@ -13,6 +13,7 @@ module.exports = {
             option.setName('time')
                 .setDescription('Time in minutes to mute the user')
                 .setRequired(true)),
+    category: 'moderation',
     async execute(interaction) {
         const user = interaction.options.getUser('user');
         const time = interaction.options.getInteger('time') * 60000;

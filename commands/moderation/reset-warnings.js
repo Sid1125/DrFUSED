@@ -11,6 +11,7 @@ module.exports = {
             option.setName('user')
                 .setDescription('The user whose warnings to reset')
                 .setRequired(true)),
+    category: 'moderation',
     async execute(interaction) {
         const user = interaction.options.getUser('user');
         const guildId = interaction.guild.id;

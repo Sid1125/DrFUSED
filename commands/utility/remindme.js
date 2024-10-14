@@ -13,6 +13,7 @@ module.exports = {
             option.setName('time')
                 .setDescription('Time in minutes for the reminder')
                 .setRequired(true)),
+    category: 'utility',
     async execute(interaction) {
         const message = interaction.options.getString('message');
         const time = interaction.options.getInteger('time') * 60000; // Convert minutes to milliseconds

@@ -7,6 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('guilds')
         .setDescription('Lists all the guilds the bot is in.'),
+    category: 'utility',
     
     async execute(interaction) {
         // Check if the user is the bot owner
