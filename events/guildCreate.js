@@ -12,6 +12,22 @@ module.exports = {
                 channel.type === ChannelType.GuildText // Using ChannelType enum for better readability
             );
 
+            // Check if the "Muted" role already exists
+            let mutedRole = guild.roles.cache.find(role => role.name === 'Muted');
+            
+            // If it doesn't exist, create the role
+            if (!mutedRole) {
+                mutedRole = await guild.roles.create({
+                    name: 'Muted',
+                    color: '#FF0000',
+                    permissions: [], // Optional: no permissions for the muted role
+                    reason: 'Auto-created Muted role for moderation purposes',
+                });
+                console.log(`Created Muted role in ${guild.name}`);
+            } else {
+                console.log(`Muted role already exists in ${guild.name}`);
+            }
+
             // Check for existing mod-logs channel
             let modLogsChannel = guild.channels.cache.find(channel => channel.name === 'mod-logs');
 
@@ -26,7 +42,11 @@ module.exports = {
                             deny: [PermissionsBitField.Flags.ViewChannel],
                         },
                     ],
+                    reason: 'Auto-created mod-logs channel for logging purposes',
                 });
+                console.log(`Created mod-logs channel in ${guild.name}`);
+            } else {
+                console.log(`mod-logs channel already exists in ${guild.name}`);
             }
 
             // Prepare the embed message

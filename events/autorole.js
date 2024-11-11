@@ -15,14 +15,30 @@ module.exports = {
                 return;
             }
 
-            const role = member.guild.roles.cache.get(roleId);
-            
-            // If the role exists, assign it to the new member
-            if (role) {
-                await member.roles.add(role);
-                console.log(`Auto-assigned ${role.name} to ${member.user.tag} in guild ${guildId}.`);
+            // Wait for a brief moment to ensure the roles cache is ready
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Check if roles cache is available
+            if (!member.guild.roles || !member.guild.roles.cache) {
+                console.error('Roles cache is not available, fetching roles from the API...');
+                await member.guild.roles.fetch();  // Fetch roles from API
+            }
+
+            // Fetch the role to assign
+            const role = await member.guild.roles.fetch(roleId);
+
+            // Check if the bot has Administrator permissions
+            if (member.guild.members.me.permissions.has('Administrator')) {
+                // Additional check to confirm the bot's role is higher in the hierarchy
+                const botRolePosition = member.guild.members.me.roles.highest.position;
+                if (role && botRolePosition > role.position) {
+                    // Assign the role if it exists and hierarchy allows it
+                    await member.roles.add(role);
+                } else {
+                    console.log(`Role with ID ${roleId} is higher than the bot's role or does not exist in guild ${guildId}.`);
+                }
             } else {
-                console.log(`Role with ID ${roleId} not found in guild ${guildId}.`);
+                console.log(`Bot does not have Administrator permissions in guild ${guildId}. Role assignment skipped.`);
             }
         } catch (error) {
             console.error('Error reading or assigning the auto-role:', error);
