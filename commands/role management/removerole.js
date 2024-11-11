@@ -1,0 +1,22 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('removerole')
+        .setDescription('Remove a role from a user')
+        .addUserOption(option => option.setName('target').setDescription('Select a user').setRequired(true))
+        .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
+    category: 'roleManagement',
+    async execute(interaction) {
+        const target = interaction.options.getUser('target');
+        const role = interaction.options.getRole('role');
+        const member = interaction.guild.members.cache.get(target.id);
+
+        if (!member.roles.cache.has(role.id)) {
+            return interaction.reply({ content: `${target.username} does not have the ${role.name} role.`, ephemeral: true });
+        }
+
+        await member.roles.remove(role);
+        await interaction.reply(`${role.name} role has been removed from ${target.username}.`);
+    },
+};
