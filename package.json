@@ -19,7 +19,7 @@
     "@rafateoli/discord-music-player": "^9.2.7",
     "axios": "^1.7.8",
     "bad-words": "^4.0.0",
-    "discord-api-types": "^0.37.101",
+    "discord-api-types": "^0.37.105",
     "discord-player": "^6.6.2",
     "discord.js": "^14.16.3",
     "discordaudio": "^3.2.6",
