@@ -34,7 +34,7 @@
     "mongoose": "^8.8.3",
     "node-fetch": "^2.7.0",
     "node-opus": "^0.3.3",
-    "opusscript": "^0.0.8",
+    "opusscript": "^0.1.1",
     "profanity-filter": "^0.2.1",
     "punycode": "^2.3.1",
     "sharp": "^0.33.5",
